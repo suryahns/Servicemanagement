@@ -1,0 +1,19 @@
+
+<table class="table">
+    <thead>
+      <th scope="col" style="font-size: 14px;">Name</th>
+      <th scope="col" style="font-size: 14px;">Employee Code</th>
+      <th scope="col" style="font-size: 14px;">Nhonenumber</th>
+      <th scope="col" style="font-size: 14px;">Position</th>
+
+    
+    </thead>
+    <tbody *ngFor="let item of employees | async">
+        <td style="font-size: 14px;">{{item.content.empCode}}</td>
+      <td style="font-size: 14px;">{{item.content.fullName}}</td>
+       <td style="font-size: 14px;">{{item.content.phoneNumber}}</td>
+      <td style="font-size: 14px;">{{item.content.position}}</td>
+  
+      <input type="button" value="Edit" class="btn1 btn btn-warning">
+      <input type="button" value="delete" class="btn1 btn btn-danger">
+  </tbody>

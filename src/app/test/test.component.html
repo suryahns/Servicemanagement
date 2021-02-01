@@ -1,0 +1,72 @@
+<div class="container-fluid">
+    <div style="color:blue;">
+    <h1>{{title}}</h1>
+    <h3>{{description}}</h3>
+    </div>
+
+        <div style="width:300px">
+        <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="item">Item</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue" name="item">
+                </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Submit</button> 
+                    </div>
+
+        </form>
+        </div>   
+
+
+
+
+    <h2>Content From Firebase</h2>
+    <div class="col-md-3">
+        <pre *ngFor="let item of items | async">{{item.content}}</pre>
+    </div>
+</div>
+  <h1>Sign In Authenticaton</h1>
+  <input type="submit" value="Logout" class="btn float-right login_btn1" (click)="logout()" >
+<h2>SignUp</h2>
+  
+<div *ngIf="!isSignedIn">
+    <h2>SignUp</h2>
+    <input type="text"  #emailSignup/>
+    <input type="text" #passwordSignup/>
+    <input type="submit" value="Submit"  (click)="onSignup(emailSignup.value,passwordSignup.value)"/>
+</div>
+<div  *ngIf="!isSignedIn">
+    <h2>SignIn</h2>
+    <input type="text" #email>
+    <input type="text" #password>
+    <input type="button" value="Sign In" (click)="onSignin(email.value,password.value)">
+</div>
+<app-testhome *ngIf="isSignedIn" ></app-testhome>
+<h2>Content From Firebase</h2>
+<div class="col-md-3">
+ 
+    <table class="table table-dark">
+        <thead>
+            <th scope="col">name</th>
+            <th scope="col">id </th>
+            <th scope="col">phonenumber</th>
+            <th scope="col">vehicleNumber</th>
+            <th scope="col">vehicleModel</th>
+            <th scope="col">comments</th>
+            <th scope="col">date</th>
+            
+       </thead>
+       <tbody *ngFor="let item of items | async">
+            <td>{{item.content.userName}}</td>
+            <td>{{item.content.id}}</td>
+            <td>{{item.content.phoneNumber}}</td>
+            <td>{{item.content.vehicleNumber}}</td>
+            <td>{{item.content.vehicleModel}}</td>
+            <td>{{item.content.comments}}</td>
+            <td>{{item.content.date}}</td>
+
+            
+       </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,126 @@
+<div class="wrapper">
+    <div class="bgimage">
+        <img src="/assets/images/bg1.jpg">
+    </div>
+    <div *ngIf="alert" class="alert alert-success" role="alert">
+        <h3>Well done!</h3><br>
+            <p>Aww yeah,your form for sevice has been submitted successfully.... </p>
+         
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="alertclose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        <hr>
+        
+      </div>
+     
+    <div class="container ">
+        
+        
+                <div class="note">
+                    <p>Service Form</p>
+                </div>
+                
+                <div #form class="form" >
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="UserName" #userName required name="userName"
+                                    [(ngModel)]="itemValue.userName" />
+                                    <div *ngIf="userName.invalid && userName.touched" class="validation-error">This field is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email ID" #email name="email" required [(ngModel)]="itemValue.email"/>
+                                <div *ngIf="email.invalid && email.touched" class="validation-error">This field is required.</div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Phone Number" #phoneNumber required maxlength="4"
+                                    [(ngModel)]="itemValue.phoneNumber"  />
+                                    <div *ngIf="phoneNumber.invalid && phoneNumber.touched" class="validation-error">This field is required.</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" class="form-control" #date [(ngModel)]="itemValue.date" required name="date" />
+                                <div *ngIf="date.invalid && date.touched" class="validation-error">This field is required.</div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select class="form-control form-control-lg mb-4"   #vehicleModel name="vehicleModel" required
+                                    [(ngModel)]="itemValue.vehicleModel">
+                                    <option selected>Select Model</option>
+                                    <option value="Iron883">IRON 883</option>
+                                    <option value="Forty-Eight">FORTY-EIGHT</option>
+                                    <option value="Softail Standard">SOFTAIL STANDARD</option>
+                                    <option value="Street Bob">STREET BOB</option>
+                                    <option value="Low Rider S">LOW RIDER S</option>
+                                    <option value="Fat Bob">FAT BOB</option>
+                                    <option value="Fat Boy">FAT BOY</option>
+                                    <option value="Electra Glide Standard">ELECTRA GLIDE STANDARD</option>
+                                    <option value="Heritage Classic">HERITAGE CLASSIC</option>
+                                </select>
+                                <div *ngIf="vehicleModel.invalid && vehicleModel.touched" class="validation-error">This field is required.</div>
+                            </div>
+
+
+                            <div class="col-md-112">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Complaints" rows="4"   #comments 
+                                        [(ngModel)]="itemValue.comments" ></textarea>
+                                     
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Vechicle Number"  required #vehicleNumber 
+                                    [(ngModel)]="itemValue.vehicleNumber" (ngModelChange)="itemValue.vehicleNumber= $event.toUpperCase()"/>
+                                    <div *ngIf="vehicleNumber.invalid && vehicleNumber.touched" class="validation-error">This field is required.</div>
+                            </div>
+                        </div>
+                      
+
+
+                        <div class="text parbase">
+                            <p><b>Disclaimer:</b> By signing this form/checking this box, you acknowledge and agree that
+                                we
+                                may use
+                                the information you share with us, to communicate with you through e-mails, text
+                                messages
+                                and
+                                calls,in order to provide our product or service related information and/or for
+                                promotional
+                                and
+                                marketing purposes. All information provided will be secured and processed as per our
+                                privacy policy.
+                            </p>
+
+                            
+                            <div class="check-btn list-view classVal">
+                                <div class="custom-checkbox">
+                                    <input type="checkbox" [(ngModel)]="checked" class="checkbpx with-font df termsAna">
+
+                                    I accept the <a class="linksTC" href="https://bit.ly/3pfqRZm"> terms
+                                        andconditions</a>
+                                    as well as <a class="linksTC" href="https://bit.ly/3qSGwyl">privacy policy</a>.
+                                </div><br>
+
+                                <button type="button" [disabled]="!checked && form.invalid" class="btn  btn-lg float-left" (click)="onSubmit()">Submit</button>
+                               
+                                <input type="button" value="Logout" class="btn1  btn-lg float-right" (click)="logout()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+                
+        
+    </div>

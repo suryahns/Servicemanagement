@@ -1,0 +1,19 @@
+input.ng-touched.ng-invalid{
+    border-color: red;
+}
+.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: red;
+}
+.btn1{
+    background-color: #ee7503;
+    color: black;
+    border: none;
+    
+}
+.btn1:hover{
+    background-color: black;
+    color: #ee7503;
+}

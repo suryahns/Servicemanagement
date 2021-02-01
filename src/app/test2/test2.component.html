@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div style="color:blue;">
+    <h1>{{title}}</h1>
+    <h3>{{description}}</h3>
+    </div>
+
+        <div style="width:300px">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="item">ID</label>
+               <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.id" name="item">
+            </div>
+                <div class="form-group">
+                    <label for="item">UserName</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.userName" name="item">
+                </div>
+               
+                <div class="form-group">
+                    <label for="item">PhoneNumber</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.phoneNumber" name="item">
+                </div>
+                <div class="form-group">
+                    <label for="item">Vehiclenumber</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.vehicleNumber" name="item">
+                </div>
+                <div class="form-group">
+                    <label for="item">VehicleModel</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.vehicleModel" name="item">
+                </div>
+                <div class="form-group">
+                    <label for="item">Comments</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.comments" name="item">
+                </div>
+                <div class="form-group">
+                    <label for="item">Date</label>
+                   <input type="text" class="form-control" placeholder="EnterContent...." id="item" required [(ngModel)]="itemValue.date" name="item">
+                </div>
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn-success">Submit</button> 
+                    </div>
+
+        </form>
+        </div>   
+
+
+
+

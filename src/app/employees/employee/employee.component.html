@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+<!--Fontawesome CDN-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+
+<h1 class="display-4">Employee Register</h1>
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" #id="ngModel"  [(ngModel)]="service.formData.id">
+    <div class="form-group">
+        <input type="text" name="fullName" #fullName="ngModel" [(ngModel)]="service.formData.fullname" class="form-control" placeholder="Full Name" required>
+        <div *ngIf="fullName.invalid && fullName.touched" class="validation-error">This field is required.</div>
+    </div>
+    <div class="form-group">
+        <input type="text" name="position" #position="ngModel" [(ngModel)]="service.formData.position" class="form-control" placeholder="Position" required>
+        <div *ngIf="position.invalid && position.touched" class="validation-error">This field is required.</div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <input type="text" name="empCode" #empCode="ngModel" [(ngModel)]="service.formData.empCode" class="form-control" placeholder="Employee Code" required>
+            <div *ngIf="empCode.invalid && empCode.touched" class="validation-error">This field is required.</div>
+        </div>
+        <div class="form-group col-md-6">
+            <input type="text" name="mobile" #mobile="ngModel" [(ngModel)]="service.formData.mobile" class="form-control" placeholder="Mobile" required>
+            <div *ngIf="mobile.invalid && mobile.touched" class="validation-error">This field is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+      
+        <button type="submit"  [disabled]="form.invalid" class=".btn.btn-lg .btn-block .btn-info">SUBMIT</button> 
+    </div>
+   
+</form>

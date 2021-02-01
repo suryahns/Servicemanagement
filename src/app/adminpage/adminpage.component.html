@@ -1,0 +1,118 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<div id="wrapper" >
+  <nav class="navbar header-top fixed-top navbar-expand-md navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <h1 style="font-family:Helvetica-condensed">
+        HARLEY <h1 class="david">DAVIDSON</h1>
+      </h1>
+    </a>  
+    <ul class="navbar-nav animate side-nav">
+      <li class="nav-item">
+        
+          <h4>
+            Admin
+          </h4>
+       
+      </li>
+      
+     
+      <div class="navbtn">
+        <li class="nav-item">
+          <button class="btn3 btn " (click)="change2()">
+            <h4 style="color: rgb(168, 168, 168)">Employees </h4><br>
+          </button>
+        </li>
+      </div>
+      <div class="navbtn">
+        <li class="nav-item">
+          <button class="btn3 btn " (click)="change1()">
+            <h4 style="color: rgb(168, 168, 168)">Services </h4><br>
+          </button>
+        </li>
+      </div>
+    </ul>
+    <ul class="navbar-nav ml-lg-auto ">
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <h4>
+            Profile
+          </h4>
+        </a>
+      </li>
+      <div class="navbtn">
+        <li class="nav-item">
+          <button class="btn btn-dark" (click)="logout()">
+            <h4 style="color: rgb(168, 168, 168)">Logout</h4>
+          </button>
+        </li>
+      </div>
+    </ul>
+</nav>
+
+  <div *ngIf=!forServiceList>
+    <div class="container-fluid">
+      <div class="hdbtn">
+        <button class="btn btn-dark" (click)="back1()">
+        <h4 style="color: rgb(255, 255, 255)">Hide </h4>
+      </button>
+    </div><br>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">ServiceRecords</h5>
+              
+              <table class="table">
+                
+                <thead>
+                  <th scope="col" style="font-size: 14px;">name</th>
+                  <th scope="col" style="font-size: 14px;">id </th>
+                  <th scope="col" style="font-size: 14px;">phonenumber</th>
+                  <th scope="col" style="font-size: 14px;">vehicleNumber</th>
+                  <th scope="col" style="font-size: 14px;">vehicleModel</th>
+                  <th scope="col" style="font-size: 14px;">comments</th>
+                  <th scope="col" style="font-size: 14px;">date</th>
+                </thead>
+                <tbody *ngFor="let item of items | filter:SearchValue | async">
+                  <td style="font-size: 14px;">{{item.content.userName}}</td>
+                  <td style="font-size: 14px;">{{item.content.id}}</td>
+                  <td style="font-size: 14px;">{{item.content.phoneNumber}}</td>
+                  <td style="font-size: 14px;">{{item.content.vehicleNumber}}</td>
+                  <td style="font-size: 14px;">{{item.content.vehicleModel}}</td>
+                  <td style="font-size: 14px;">{{item.content.comments}}</td>
+                  <td style="font-size: 14px;">{{item.content.date}}</td>
+                  <td input type="button"><a class='btn btn-success btn-xs'><span
+                    class="glyphicon glyphicon-edit"></span>edit </a></td>
+                  <td input type="button" ><a class='btn btn-danger btn-xs'><span
+                    class="glyphicon glyphicon-remove"></span> delete</a></td>
+              </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </div> 
+  <div *ngIf=!forCustomerList>
+   
+  <div class="container-fluid">
+    <div class="hdbtn">
+      <button class="btn btn-dark" (click)="back2()">
+      <h4 style="color: rgb(255, 255, 255)">Hide </h4>
+    </button>
+  </div><br>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Employees List</h5>
+           <app-employeetest></app-employeetest>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </div> 
+ 
+</div>
